@@ -1,3 +1,9 @@
+"""
+Goes through a directory of images and their annotations in COCO forma and runs pose estimation on each cropped image. 
+Saves each image with its keypoints and skeleton drawn on it.
+Finally, saves the updated annotations back to a file (with the skeleton information).
+"""
+
 import json, os
 from mmpose.apis import MMPoseInferencer
 
@@ -66,7 +72,7 @@ for cat in coco_data['categories']:
         joint_names = cat['keypoints']
 
         
-# Initialize the MMPoseInferencer with your model
+# Initialize the MMPoseInferencer 
 inferencer = MMPoseInferencer(
     pose2d='td-hm_hrnet-w32_8xb32-300e_animalkingdom_P3_bird-256x256',
     pose2d_weights='https://download.openmmlab.com/mmpose/v1/animal_2d_keypoint/topdown_heatmap/animal_kingdom/td-hm_hrnet-w32_8xb32-300e_animalkingdom_P3_bird-256x256-566feff5_20230519.pth',

@@ -15,6 +15,13 @@
 # print(pose_results)
 
 # ##############
+
+
+"""
+Tries to use VHR Birdpose model to predict keypoints on an image and convert the predictions to COCO format.
+
+"""
+
 import numpy as np
 from mmpose.apis import MMPoseInferencer
 import json

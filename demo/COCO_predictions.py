@@ -1,3 +1,9 @@
+"""
+Uses the MMPose Inferencer to predict keypoints on an image and converts the predictions to COCO format. 
+Prints an example annotation in COCO format.
+
+"""
+
 import numpy as np
 from mmpose.apis import MMPoseInferencer
 import json
@@ -40,17 +46,17 @@ for i, instance_data in enumerate(result['predictions']):
     # Calculate area (area of the bounding box)
     area = int(bbox[2] * bbox[3])
 
-    # Generate a unique annotation ID (in practice, you should manage this ID across your dataset)
-    annotation_id = i + 1  # Simply using index + 1 for unique ID
+    # Generate example annotation ID for testing purposes
+    annotation_id = i + 1  
 
-    # Example COCO annotation dictionary
+    # EXAMPLE COCO annotation dictionary
     annotation = {
         "segmentation": [],
         "area": area,
         "iscrowd": 0,
-        "image_id": 23364344,  # Replace with your actual image ID
+        "image_id": 23364344,  # Replace
         "bbox": [float(bbox[0]), float(bbox[1]), float(bbox[2]), float(bbox[3])],
-        "category_id": 1,  # Assuming category ID 1 corresponds to "animal"
+        "category_id": 1, 
         "id": annotation_id,
         "keypoints": formatted_keypoints,
         "num_keypoints": num_keypoints

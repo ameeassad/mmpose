@@ -1,3 +1,7 @@
+"""
+A simple COCO annotation visualization script using matplotlib. NO predictions are made, only visualized. 
+"""
+
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from PIL import Image
